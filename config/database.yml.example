@@ -1,0 +1,14 @@
+development:
+  adapter: mysql
+  database: myfriends_development
+  encoding: utf8
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql
+  database: myfriends_test
+  
+production:
+  adapter: mysql
+  database: myfriends_production
+ 
