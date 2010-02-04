@@ -1,0 +1,23 @@
+<div id="calendar">
+	
+	<p>
+		<%= @calendar.year %>
+	</p>
+	
+	<% for month in @calendar.months %>
+	<p>
+		<%= month.name %>
+	</p>	
+		
+		<% for week in month.weeks %>
+			<%= week %>
+			
+			<% for day in week.days %>
+				<%= day.name %>
+			<% end %>
+			
+		<% end %>
+		
+	<% end %>
+	
+</div>

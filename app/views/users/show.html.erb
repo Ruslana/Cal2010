@@ -1,0 +1,7 @@
+<h3><%= @user.name %></h3>
+
+<%= link_to "edit", edit_user_path(@user) %>
+<%= link_to "destroy", @user, 
+		:confirm => 'Are you sure?', 
+		:method => :delete
+		%>
