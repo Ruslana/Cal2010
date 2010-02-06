@@ -6,18 +6,16 @@
 	
 	<% for month in @calendar.months %>
 	<p>
-		<%= month.name %>
-	</p>	
+		<%= month.name.first %>
 		
-		<% for week in month.weeks %>
-			<%= week %>
-			
-			<% for day in week.days %>
-				<%= day.name %>
-			<% end %>
+		<% for count in month.weeks_of_month %>
+		
+			<p>
+				<%= count.week.join(" ") %>
+			</p>
 			
 		<% end %>
+	</p>	
 		
 	<% end %>
-	
 </div>

@@ -1,11 +1,21 @@
 class Calendar
   
   def initialize
-    year
+    @call = Time.now.beginning_of_year
   end
   
   def year
-    "2010"
+    @call.year
+  end  
+  
+  def first_day_months
+    day = @call
+    returning days = [day] do
+      11.times do 
+        day = day.next_month
+        days << day
+      end
+    end
   end
   
   def months
@@ -17,7 +27,7 @@ class Calendar
   end
 
   def months_names
-    Date::MONTHNAMES[1,12]
+    Date::MONTHNAMES[1,12].zip(first_day_months)
   end
-  
+
 end
