@@ -1,0 +1,28 @@
+<div id="calendar">
+	
+	<p>
+		<%= @calendar.year %>
+	</p>	
+		
+	<table border>
+		<tr>	
+			<td>
+			<% for month in @calendar.months %>	
+		
+			<p>
+				<%= link_to month.array_month.first, (new_month_path :mas => month.array_month) %>	
+		
+				<% for count in month.weeks_of_month %>
+				
+				<p>
+					<%= count.week.join(" ") %>
+				</p>
+	
+				<% end %>
+			</p>	
+			<% end %>
+
+			</td>
+		</tr>
+	</table>
+</div>

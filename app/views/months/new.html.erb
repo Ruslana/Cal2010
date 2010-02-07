@@ -1,0 +1,20 @@
+<div id="calendar">
+	
+	<table border>
+		<tr>	
+			<td>		
+	<p>
+		<h3><%= @month.array_month.first %></h3>
+		
+		<% for count in @month.weeks_of_month %>
+				
+			<p>
+				<%= count.week.join(" ") %>
+			</p>
+	
+		<% end %>
+	</p>	
+			</td>
+		</tr>
+	</table>
+</div>

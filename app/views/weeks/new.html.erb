@@ -1,0 +1,19 @@
+<div id="calendar">
+	
+	<table border>
+		<tr>				
+			<p>
+				<% for day in @week.days %>
+					<td><%= day.date %></td>
+				<% end %>
+			</p>
+			</tr>
+			<tr>
+			<p>
+				<% for day in @week.week %>
+					<td><%= day %></td>
+				<% end %>
+			</p>
+			</tr>
+	</table>
+</div>
