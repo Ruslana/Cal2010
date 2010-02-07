@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   filter_parameter_logging :password
   
-  layout "public"
+  def today
+    [Time.now.strftime("%B"), Time.now]
+  end
+  
+  helper_method :today
   
 end

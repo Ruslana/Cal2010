@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       user = User.authenticate(params[:password], params[:name])
       if user
         session[:user_id] = user.id
-        redirect_to calendar_path
+        redirect_to new_calendar_path
       else      
         flash[:note] = "Invalid user name/password"
         redirect_to new_session_path

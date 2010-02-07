@@ -1,9 +1,9 @@
 class Day
   
-  attr_reader :name
+  attr_reader :date
   
-  def initialize(name)
-    @name = name
+  def initialize(date)
+    @date = date
   end
 
 end

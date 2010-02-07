@@ -1,6 +1,6 @@
 class CalendarController < ProtectedController
   
-  def index
+  def new
     @calendar = Calendar.new
   end
   

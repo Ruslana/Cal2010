@@ -1,6 +1,7 @@
 class ProtectedController < ApplicationController
   
   before_filter :authorize
+  layout "public"
   
   filter_parameter_logging :password, :password_confirmation
 

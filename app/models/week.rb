@@ -1,11 +1,12 @@
 class Week
   
+  attr_reader :day
+  
   def initialize(day)
-    @day = day
+    @day = day.to_time
   end
   
   def week
-    day = @day
     if day.beginning_of_week < day.beginning_of_month
       first_week(day)
     elsif
