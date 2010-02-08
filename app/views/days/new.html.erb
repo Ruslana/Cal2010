@@ -1,18 +1,21 @@
-<div id="calendar">
-	
-	<table border>
-		<tr>	
-			<td>		
+<table border>
+	<caption>
+		<%= link_to image_tag("/images/left_arrow.png"), (new_day_path :date => @day.date.to_time.yesterday) %>
+		<%= @day.date.to_time.day %>
+		<%= @day.date.to_time.strftime("%A") %>
+		<%= link_to image_tag("/images/right_arrow.png"), (new_day_path :date => @day.date.to_time.tomorrow) %>
+	</caption>
+	<tr>	
+		<td>		
+			<div class="slot_day">
 				
-			<p>
-				<%= @day.date.to_time.strftime("%A") %>
-			</p>
-			<p>
-				<%= @day.date.to_time.day %>
-			</p>
-			
-			</td>
-		</tr>
-	</table>
-</div>
+					<% for time in @day.times %>
+				
+						<p><%= time %></p>
+											
+					<% end %>
+				</div>
+		</td>
+	</tr>
+</table>
 

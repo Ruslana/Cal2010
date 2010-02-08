@@ -1,4 +1,4 @@
-class DaysController < ApplicationController
+class DaysController < ProtectedController
   
   def new
     @day = Day.new(params[:date])

@@ -1,0 +1,26 @@
+body {
+	font-family: "Lucida Grande", Verdana, Lucida, Arial, sans-serif
+}
+table {
+	background: #fffff0; 
+	margin: 10px;
+	caption-side: top;
+}
+
+.slot {
+	margin: 10px;
+}
+
+.slot_month {
+	height: 130px;
+	width: 130px;
+	text-align: right;
+}
+
+.slot_week {
+	width: 130px;
+}
+
+.slot_day {
+	width: 900px;
+}

@@ -1,19 +1,34 @@
-<div id="calendar">
-	
-	<table border>
-		<tr>				
-			<p>
-				<% for day in @week.days %>
-					<td><%= day.date %></td>
+<table border>
+	<tr>
+		<tr>			
+			<caption>
+				<%= link_to image_tag("/images/left_arrow.png"), (new_week_path :day => @week.day.next_week) %> | 
+				<%= link_to image_tag("/images/right_arrow.png"), (new_week_path :day => @week.day.next_week) %>
+			</caption>
+			<div class="slot_week">
+			<% for day in @week.days %>
+				<td><%= day.date %></td>
+			<% end %>
+			<div class="slot_week">		
+		</tr>
+		<tr>
+			<% for days in @week.find_weeks %>
+			
+				<% for day in days %>
+				<td>
+					<div class="slot_week">
+						<%= day.date %>
+						<%= @week.day.strftime("%b") %>
+				
+				    <% for time in day.times %>
+						
+							<p><%= time %></p>
+													
+						<% end %>
+					</div>					
+				 </td>		
 				<% end %>
-			</p>
-			</tr>
-			<tr>
-			<p>
-				<% for day in @week.week %>
-					<td><%= day %></td>
-				<% end %>
-			</p>
-			</tr>
-	</table>
-</div>
+			<% end %>			
+		</tr>
+	</tr>
+</table>

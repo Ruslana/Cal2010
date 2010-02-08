@@ -1,4 +1,4 @@
-class WeeksController < ApplicationController
+class WeeksController < ProtectedController
   
   def new
     @week = Week.new(params[:day])

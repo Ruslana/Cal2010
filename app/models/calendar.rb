@@ -1,17 +1,25 @@
 class Calendar
   
   def initialize
-    @cal = Time.now.beginning_of_year
+    @calendar = Time.now.beginning_of_year
   end
   
   def year
-    @cal.year
+    @calendar.year
   end  
   
   def months
     returning result = [] do
-      first_days_and_months_names.each do |array_month|
-        result << Month.new(array_month)
+      first_days_and_months_names.each do |name_and_day|
+        result << Month.new(name_and_day)
+      end
+    end
+  end
+  
+  def mas_months
+    returning result = [] do
+      [0,4,8].each do |n|
+          result << months[n,4] 
       end
     end
   end
@@ -21,7 +29,7 @@ class Calendar
   end
   
   def first_day_months
-    day = @cal
+    day = @calendar
     returning days = [day] do
       11.times do 
         day = day.next_month

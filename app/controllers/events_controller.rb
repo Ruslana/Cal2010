@@ -6,6 +6,7 @@ class EventsController < ProtectedController
   
   def create
     @event = Event.new(params[:event])
+    @event.save!
   end
   
   def index
@@ -22,7 +23,7 @@ class EventsController < ProtectedController
   
   def update
     @event = Event.find(params[:id])
-    @event.update_attribute(params[:event])  
+    @event.update_attribute(params[:event])    
   end
   
   def destroy

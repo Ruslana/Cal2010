@@ -1,28 +1,32 @@
-<div id="calendar">
-	
-	<p>
-		<%= @calendar.year %>
-	</p>	
+<table border>		
+	<caption><h3><%= @calendar.year %></h3></caption>
 		
-	<table border>
-		<tr>	
+		<% for months in @calendar.mas_months %>	
+		<tr>
+			<% for month in months %>
 			<td>
-			<% for month in @calendar.months %>	
-		
-			<p>
-				<%= link_to month.array_month.first, (new_month_path :mas => month.array_month) %>	
-		
-				<% for count in month.weeks_of_month %>
-				
+				<div class="slot">
 				<p>
-					<%= count.week.join(" ") %>
-				</p>
+					<%= link_to month.name_and_day.first, (new_month_path :mas => month.name_and_day) %>	
 	
-				<% end %>
-			</p>	
-			<% end %>
+					<% for count in month.weeks_of_month %>
+			
+					<p>
+							<% for days in count.find_weeks %>
+							
+								<% for day in days %>
+									<%= day.date %>
+								<% end %>
+						
+							<% end %>
+					</p>
 
+					<% end %>
+				</p>			
+				</div>
 			</td>
+			<% end %>
 		</tr>
-	</table>
-</div>
+		<% end %>
+</table>
+

@@ -1,26 +1,18 @@
 class Month
   
-  attr_reader :array_month
+  attr_reader :name_and_day, :day
   
-  def initialize(array_month)
-    @array_month = array_month
+  def initialize(name_and_day)
+    @name_and_day = name_and_day
+    @day = name_and_day.last.to_time
   end
-  
-  def days_of_month
-    day = array_month.last
-    returning month = [] do
-      (day.beginning_of_month.day..day.end_of_month.day).each do |dat|
-        month << dat
-      end
-    end
-  end
-  
+
   def weeks_of_month
-    day = array_month.last.to_time 
+    dat = day.beginning_of_month 
     returning weeks = [] do
-      while day < array_month.last.to_time.end_of_month do
-        weeks << Week.new(day)
-        day = day.next_week
+      while dat < day.end_of_month do
+        weeks << Week.new(dat)
+        dat = dat.next_week
       end
     end
   end

@@ -1,20 +1,29 @@
-<div id="calendar">
-	
-	<table border>
-		<tr>	
-			<td>		
-	<p>
-		<h3><%= @month.array_month.first %></h3>
-		
-		<% for count in @month.weeks_of_month %>
+<table border>
+	<tr>
+		<caption>
+			<h3>					
+				<%= link_to image_tag("/images/left_arrow.png"), (new_month_path :mas => [@month.day.last_month.strftime("%B"),@month.day.last_month]) %>	
+				<%= @month.name_and_day.first %>
+				<%= link_to image_tag("/images/right_arrow.png"), (new_month_path :mas => [@month.day.next_month.strftime("%B"),@month.day.next_month]) %>
+			</h3>
+		</caption>
+			<% for count in @month.weeks_of_month %>
+			<tr>							
+				<% for days in count.find_weeks %>
+					
+					<% for day in days %>
+			
+				<td>
+					<div class="slot_month">
+						<%= day.date %>
+					</div>
+				</td>
+					<% end %>
 				
-			<p>
-				<%= count.week.join(" ") %>
-			</p>
-	
-		<% end %>
-	</p>	
-			</td>
-		</tr>
-	</table>
-</div>
+				<% end %>			
+			</tr>
+			<% end %>			
+			
+	</tr>
+</table>
+
