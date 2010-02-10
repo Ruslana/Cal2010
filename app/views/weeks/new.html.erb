@@ -17,13 +17,22 @@
 				<% for day in days %>
 				<td>
 					<div class="slot_week">
-						<%= day.date %>
+						<%= day.date.day %>
 						<%= @week.day.strftime("%b") %>
 				
 				    <% for time in day.times %>
 						
 							<p><%= time %></p>
-													
+							
+							<% for event in @events %>		
+							
+								<% if event.date.hour == time.to_i %>
+									<%= recurs(event, day.date) %>
+								<% end %>
+								
+							<% end %>
+							<hr />
+							
 						<% end %>
 					</div>					
 				 </td>		

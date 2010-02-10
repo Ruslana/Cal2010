@@ -7,6 +7,7 @@ class EventsController < ProtectedController
   def create
     @event = Event.new(params[:event])
     @event.save!
+    redirect_to new_calendar_path
   end
   
   def index

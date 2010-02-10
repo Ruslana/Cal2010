@@ -9,11 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100203144631) do
+ActiveRecord::Schema.define(:version => 20100209112916) do
 
   create_table "events", :force => true do |t|
     t.string   "description"
     t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "select_id"
+  end
+
+  create_table "selects", :force => true do |t|
+    t.string   "sort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

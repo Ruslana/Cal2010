@@ -1,8 +1,21 @@
-<% form_for Event.new do |f| %>
+<div id="event">
+	<% form_for Event.new do |f| %>
  
-<p>
-	<%= f.text_field :description %>
-</p>
-	<%= f.submit "Done" %>
+		<p>
+			<%= f.label :event %>:
+			<%= f.text_field :description %>
+		</p>
+	
+		<p>
+			Date:
+			<%= datetime_select :event, :date, :discard_year => true %>
+		</p>
+		<p>
+			Recurs:
+			<%= collection_select(:event, :select_id, Select.all, :id, :select_recurs, {:prompt => "Not recurs"}) %>
+		</p>
+	
+		<%= f.submit "Done" %>
 
-<% end %>
+	<% end %>
+</div>

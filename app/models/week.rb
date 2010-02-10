@@ -6,25 +6,27 @@ class Week
     @day = day.to_time
   end
   
-  def find_weeks    
-    returning parts_weeks = [] do
-      if day.beginning_of_week < day.beginning_of_month      
-        parts_weeks << week(day, (day.beginning_of_week.day..day.last_month.end_of_month.day))
-        parts_weeks << week(day, (day.beginning_of_month.day..day.end_of_week.day))            
+  def find_weeks
+    returning result = [] do
+      if day.beginning_of_week < day.beginning_of_month
+        result << days_of_weeks(day.beginning_of_week, day.last_month.end_of_month)
+        result << days_of_weeks(day.beginning_of_month, day.end_of_week)
       elsif
-        day.end_of_week > day.end_of_month      
-        parts_weeks << week(day, (day.beginning_of_week.day..day.end_of_month.day))
-        parts_weeks << week(day, (day.next_month.beginning_of_month.day..day.end_of_week.day))      
-      else      
-        parts_weeks << week(day, (day.beginning_of_week.day..day.end_of_week.day))      
+        day.end_of_week > day.end_of_month
+        result << days_of_weeks(day.beginning_of_week, day.end_of_month)
+        result << days_of_weeks(day.next_month.beginning_of_month, day.end_of_week)
+      else
+        result << days_of_weeks(day.beginning_of_week, day.end_of_week)
       end
     end
   end
   
-  def week(day, mass)
-    returning result = [] do
-      mass.each do |dat|
-        result << Day.new(dat)
+  def days_of_weeks(first_day, last_day)
+    dat = first_day
+    returning parts_weeks = [] do
+      while dat < last_day do
+        parts_weeks << Day.new(dat)
+        dat = dat.tomorrow
       end
     end
   end  

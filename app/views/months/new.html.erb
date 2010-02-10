@@ -15,7 +15,12 @@
 			
 				<td>
 					<div class="slot_month">
-						<%= day.date %>
+						<%= day.date.day %><br />
+						
+						<% for event in @events %>		
+							<%= recurs(event, day.date) %>
+						<% end %>
+						
 					</div>
 				</td>
 					<% end %>

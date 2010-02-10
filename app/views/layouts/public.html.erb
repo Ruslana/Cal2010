@@ -12,6 +12,8 @@
 			<%= link_to "Month", (new_month_path :mas => today) %>
 			<%= link_to "Week", (new_week_path :day => today.last) %>
 			<%= link_to "Day", (new_day_path :date => today.last) %>
+			<%= link_to "Create event", new_event_path %>
+			<%= link_to "Sing out", (new_session_path :method => :delete) %>
 			
 			<%= yield :layout %> 
 		</div>
