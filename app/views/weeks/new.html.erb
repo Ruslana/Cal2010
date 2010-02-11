@@ -28,8 +28,7 @@
 							<% for event in @events %>		
 							
 								<% if event.date.hour == time.to_i %>
-									<% compact = recurs(event, day.date) %>
-									<%= recurs(event, day.date) %>
+									<%= link_to recurs(event, day.date), edit_event_path(event) %>
 								<% end %>
 								
 							<% end %>

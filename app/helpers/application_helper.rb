@@ -21,6 +21,22 @@ module ApplicationHelper
       result << event.description
 	  end
   end
+  
+  def find_event_for_every_work_day(event, date)
+    returning result = [] do
+      if (date.strftime("%a") != "Sun") and (date.strftime("%a") != "Sat")
+        result << event.description
+      end
+	  end
+  end
+  
+  def find_event_for_not_recurs(event, date)      
+    returning result = [] do
+      if (event.date.day == date.day) and (event.date.month == date.month)
+        result << event.description
+      end
+    end
+  end
 
   def recurs(event, date)
     case event.select.sort
@@ -31,7 +47,9 @@ module ApplicationHelper
      when "Every month"
        find_event_for_every_month(event, date)
      when "Every work-day"
+       find_event_for_every_work_day(event, date)
      else
+       find_event_for_not_recurs(event, date)
     end
   end
   

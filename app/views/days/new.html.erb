@@ -17,7 +17,7 @@
 						<% for event in @events %>
 							
 							<% if event.date.hour == time.to_i %>
-								<%= recurs(event, one_day) %>
+								<%= link_to recurs(event, one_day), edit_event_path(event) %>
 							<% end %>
 							
 						<% end %>
