@@ -39,4 +39,13 @@ module ApplicationHelper
     @day.date.to_time
   end
   
+  def last_week(date)
+    returning result = [] do
+      7.times do
+        date = date.yesterday.to_time
+        result << date
+      end
+    end
+  end
+  
 end

@@ -2,7 +2,7 @@
 	<tr>
 		<tr>			
 			<caption>
-				<%= link_to image_tag("/images/left_arrow.png"), (new_week_path :day => @week.day.next_week) %> | 
+				<%= link_to image_tag("/images/left_arrow.png"), (new_week_path :day => last_week(@week.day).last) %> | 
 				<%= link_to image_tag("/images/right_arrow.png"), (new_week_path :day => @week.day.next_week) %>
 			</caption>
 			<div class="slot_week">
@@ -19,7 +19,8 @@
 					<div class="slot_week">
 						<%= day.date.day %>
 						<%= @week.day.strftime("%b") %>
-				
+						<hr />
+						
 				    <% for time in day.times %>
 						
 							<p><%= time %></p>

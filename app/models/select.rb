@@ -5,6 +5,4 @@ class Select < ActiveRecord::Base
     "#{sort}"
   end
   
-  
-  
 end
