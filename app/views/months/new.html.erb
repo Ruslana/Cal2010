@@ -18,7 +18,7 @@
 						<%= day.date.day %><br />
 						
 						<% for event in @events %>		
-							<%= recurs(event, day.date) %>
+							<%= link_to recurs(event, day.date), edit_event_path(event) %>
 						<% end %>
 						
 					</div>

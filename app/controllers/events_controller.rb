@@ -24,12 +24,17 @@ class EventsController < ProtectedController
   
   def update
     @event = Event.find(params[:id])
-    @event.update_attribute(params[:event])    
+    if @event.update_attributes(params[:event])    
+      redirect_to new_calendar_path
+    else
+      redirect_to edit_event_path(@event)
+    end
   end
   
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    redirect_to new_calendar_path
   end
   
 end

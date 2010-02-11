@@ -12,13 +12,13 @@ table {
 }
 
 .slot_month {
-	height: 130px;
-	width: 130px;
+	height: 150px;
+	width: 150px;
 	text-align: right;
 }
 
 .slot_week {
-	width: 130px;
+	width: 150px;
 }
 
 .slot_day {

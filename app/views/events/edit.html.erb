@@ -1,0 +1,6 @@
+<%= render :partial => "form", :locals => {:event => @event} %>
+
+<%= link_to "remove event", @event, 
+		:confirm => 'Are you sure?', 
+		:method => :delete
+		%>
