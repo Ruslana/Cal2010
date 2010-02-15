@@ -1,14 +1,13 @@
 development:
   adapter: mysql
-  database: myfriends_development
+  database: cal2010_development
   encoding: utf8
   socket: /tmp/mysql.sock
 
 test:
   adapter: mysql
-  database: myfriends_test
+  database: cal2010_test
   
 production:
   adapter: mysql
-  database: myfriends_production
- 
+  database: cal2010_production
